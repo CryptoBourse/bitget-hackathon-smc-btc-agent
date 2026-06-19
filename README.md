@@ -30,7 +30,7 @@ Past performance is not a guarantee of live profitability. Cloud card ROI reflec
 
 ```bash
 # Clone and enter project
-git clone https://github.com/YOUR_USERNAME/bitget-hackathon-smc-btc-agent.git
+git clone https://github.com/CryptoBourse/bitget-hackathon-smc-btc-agent.git
 cd bitget-hackathon-smc-btc-agent
 
 # Validate Playbook package (getagent skill)
