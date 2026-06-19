@@ -42,9 +42,14 @@ long_description: |
   Past historical backtest performance is not a guarantee of live profitability,
   and paper or live execution will face slippage and fees that erode edge.
 
+  Subscribers choose one trading pair at a time via Custom: BTC, ETH, SOL, or
+  tokenized gold perpetual. Only one symbol runs per deployment; switch pairs
+  by updating the instance configuration rather than expecting simultaneous
+  multi-asset execution from a single agent.
+
 market_type: contract
 trading_symbols: ["BTCUSDT"]
-tags: ["smc", "btc", "agent", "autonomous", "liquidity", "m15", "contract"]
+tags: ["smc", "btc", "agent", "autonomous", "liquidity", "m15", "contract", "multi-asset"]
 
 decision_mode: deterministic
 backtest_support: full
@@ -76,11 +81,14 @@ user_config_schema:
     type: array
     item_type: string
     default: ["BTCUSDT"]
-    options: ["BTCUSDT", "ETHUSDT", "SOLUSDT"]
+    options: ["BTCUSDT", "ETHUSDT", "SOLUSDT", "XAUUSDT"]
     aliases:
       btc: BTCUSDT
       bitcoin: BTCUSDT
       eth: ETHUSDT
+      sol: SOLUSDT
+      gold: XAUUSDT
+      xau: XAUUSDT
     min_items: 1
     max_items: 1
     label: "Trading symbol"

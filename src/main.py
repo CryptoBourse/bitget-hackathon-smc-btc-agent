@@ -72,7 +72,7 @@ def _fetch_replay_frame(symbol: str, interval: str, exchange: str) -> pd.DataFra
 
 def run() -> None:
     cfg = runtime.manifest.get("strategy_config", {}) or {}
-    symbols = cfg.get("trading_symbols") or ["XAUUSDT"]
+    symbols = cfg.get("trading_symbols") or ["BTCUSDT"]
     symbol = symbols[0]
     interval = cfg.get("bar_interval", "15m")
 
