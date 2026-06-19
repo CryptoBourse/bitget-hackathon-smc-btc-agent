@@ -6,29 +6,30 @@ Autonomous Smart Money Concepts trading agent for **BTCUSDT** perpetual on **15-
 |------|-------|
 | **Track** | Trading Agent |
 | **Playbook** | `smc-btc-agent-m15` |
-| **Published version (submit this)** | `0.0.4` (BTC, cloud-window tuned) |
+| **Published version (submit this)** | `0.0.6` (full SMC thesis in Strategy details) |
 | **Package version (`manifest.yaml`)** | `0.2.0` (local semver — not the cloud publish tag) |
 | **Strategy ID** | `7cbc53a3-4e7c-441c-96d5-02127459b9dd` |
 | **Bitget UID** | `7365246417` |
 | **Schedule** | `*/15 * * * *` (Asia/Shanghai) |
 | **Playbook hub** | [Bitget GetAgent Playbook](https://www.bitget.com/activity/ai-get-agent/playbook) — search `smc-btc-agent-m15` or Strategy ID |
 
-> **Version note:** GetAgent assigns publish tags (`0.0.1`–`0.0.4`). `manifest.yaml` `version: 0.2.0` is the local package revision only. **Submit v0.0.4** in the hackathon form.
+> **Version note:** GetAgent assigns publish tags (`0.0.1`–`0.0.6`). `manifest.yaml` `version: 0.2.0` is the local package revision only. **Submit v0.0.6** in the hackathon form.
 
 ## Thesis
 
-BTC often runs liquidity beyond swing highs or lows before reversing. This agent automates a full **perceive → decide → execute** loop without discretionary chart reading:
+This Playbook trades tokenized gold perpetual futures using Smart Money Concepts on a medium-term intraday timeframe. The thesis is that gold frequently hunts resting liquidity beyond obvious swing extremes before reversing toward institutional order blocks. Rather than chasing breakouts blindly, the strategy waits for a liquidity sweep, a shift in market structure, and a disciplined retest inside a favorable value zone before committing capital. It is built for subscribers who want a rules-based SMC workflow instead of discretionary chart reading.
 
-1. **Perception** — volatility regime (ATR filter) + swing structure (premium/discount)
-2. **Liquidity sweep** — wick beyond a swing extreme, close back inside range
-3. **Order block** — last opposing candle before the impulsive move
-4. **Value filter** — longs in discount, shorts in premium
-5. **Entry** — order-block retest after change of character
-6. **Exit** — stop beyond sweep, R:R target, structure invalidation
+**Entries** begin after price sweeps a recent swing extreme and closes back inside the prior range, signaling a stop-run rather than a true breakout. The Playbook then looks for a change of character in the direction of the intended reversal and waits for price to retest the last opposing order block while price remains in discount for longs or premium for shorts. Only when structure, liquidity, and value alignment agree does it enter long or enter short with a directional position.
 
-Past performance is not a guarantee of live profitability. Cloud card ROI reflects the official GetAgent Nautilus replay (~1000 M15 bars), not extended local simulations.
+**Exits** are managed with a fixed reward-to-risk framework plus structural invalidation. If price violates the sweep extreme again, the trade is closed as a failed setup. If price reaches the projected target derived from the initial risk budget, the position is closed to bank gains. An additional structure-based exit closes the trade when market character flips against the open position, preventing a winner from turning into a full reversal loss.
 
-Legacy note: some class names (`SmcGoldStrategy`) and folder name (`smc-gold`) come from an early XAU prototype. **Submission asset is BTCUSDT v0.0.4.** ETH/SOL/XAU appear only in optional multi-asset scripts under `scripts/` and `evidence/`.
+**Tuning** — subscribers may tune how aggressively the model labels liquidity sweeps, how far it searches for order blocks, the reward multiple applied to each setup, position size, leverage, and margin budget. Tighter sweep sensitivity produces fewer but cleaner signals, while wider sensitivity increases trade count at the cost of noisier entries. A higher reward multiple stretches profit targets and can reduce hit rate, while a lower multiple banks gains sooner.
+
+**Multi-asset validation** — the same SMC framework has been backtested on **BTCUSDT**, **ETHUSDT**, and **SOLUSDT** USDT perpetual futures in addition to tokenized gold. Reproducible scripts (`scripts/optimize_smc.py`, `scripts/compare_assets.py`) confirm trades across all four markets. Select one pair at a time via Custom configuration.
+
+**Limitations** — the strategy underperforms in low-volatility sessions where sweeps are shallow and order blocks are repeatedly violated without follow-through. Fast news-driven spikes around macro releases can also stop out valid structural setups before the retest completes. Choppy overlapping ranges on gold can create repeated false sweeps and whipsaw losses. Past backtest performance is not a guarantee of live profitability.
+
+Cloud card ROI reflects the official GetAgent Nautilus replay (~1000 M15 bars), not extended local simulations. **Submission asset is BTCUSDT v0.0.6**; class names (`SmcGoldStrategy`) and folder name (`smc-gold`) reflect the original XAU SMC prototype.
 
 ## 策略 / Strategy
 
@@ -74,7 +75,7 @@ python scripts/optimize_smc.py           # grid-search BTC/ETH/SOL
 python scripts/compare_assets.py         # fair default-params comparison
 ```
 
-## Official cloud metrics (v0.0.4 publish)
+## Official cloud metrics (v0.0.6 publish)
 
 | Metric | Value |
 |--------|-------|

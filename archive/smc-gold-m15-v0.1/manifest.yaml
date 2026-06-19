@@ -1,0 +1,107 @@
+name: smc-gold-m15
+display_name: "SMC Gold M15 Liquidity Sweep"
+version: "0.1.0"
+description: "Smart Money Concepts gold perpetual strategy on fifteen-minute structure with liquidity sweeps and order-block retests"
+long_description: |
+  This Playbook trades tokenized gold perpetual futures using Smart Money
+  Concepts on a medium-term intraday timeframe. The thesis is that gold
+  frequently hunts resting liquidity beyond obvious swing extremes before
+  reversing toward institutional order blocks. Rather than chasing breakouts
+  blindly, the strategy waits for a liquidity sweep, a shift in market
+  structure, and a disciplined retest inside a favorable value zone before
+  committing capital. It is built for subscribers who want a rules-based SMC
+  workflow instead of discretionary chart reading.
+
+  Entries begin after price sweeps a recent swing extreme and closes back
+  inside the prior range, signaling a stop-run rather than a true breakout.
+  The Playbook then looks for a change of character in the direction of the
+  intended reversal and waits for price to retest the last opposing order
+  block while price remains in discount for longs or premium for shorts. Only
+  when structure, liquidity, and value alignment agree does it enter long or
+  enter short with a directional position.
+
+  Exits are managed with a fixed reward-to-risk framework plus structural
+  invalidation. If price violates the sweep extreme again, the trade is
+  closed as a failed setup. If price reaches the projected target derived
+  from the initial risk budget, the position is closed to bank gains. An
+  additional structure-based exit closes the trade when market character
+  flips against the open position, preventing a winner from turning into a
+  full reversal loss.
+
+  Subscribers may tune how aggressively the model labels liquidity sweeps,
+  how far it searches for order blocks, the reward multiple applied to each
+  setup, position size, leverage, and margin budget. Tighter sweep
+  sensitivity produces fewer but cleaner signals, while wider sensitivity
+  increases trade count at the cost of noisier entries. A higher reward
+  multiple stretches profit targets and can reduce hit rate, while a lower
+  multiple banks gains sooner.
+
+  The strategy underperforms in low-volatility sessions where sweeps are
+  shallow and order blocks are repeatedly violated without follow-through.
+  Fast news-driven spikes around macro releases can also stop out valid
+  structural setups before the retest completes. Choppy overlapping ranges
+  on gold can create repeated false sweeps and whipsaw losses. Past
+  backtest performance is not a guarantee of live profitability, and paper
+  or live execution will face slippage and fees that erode edge.
+
+market_type: contract
+trading_symbols: ["XAUUSDT"]
+tags: ["smc", "gold", "xau", "liquidity", "order-block", "m15", "contract", "rwa"]
+
+decision_mode: deterministic
+backtest_support: full
+runtime_profile: deterministic
+execution_mode: follow_trade
+follow_trade_supported: true
+
+schedule:
+  cron: "*/15 * * * *"
+  tz: "Asia/Shanghai"
+
+strategy_config:
+  trading_symbols: ["XAUUSDT"]
+  bar_interval: "15m"
+  swing_lookback: 5
+  sweep_buffer_pct: 0.0008
+  ob_search_bars: 8
+  rr_ratio: 2.0
+  max_bars_after_sweep: 12
+  leverage: 3
+  margin_budget: "200"
+  trade_size: "0.05"
+
+user_config_schema:
+  trading_symbols:
+    type: array
+    item_type: string
+    default: ["XAUUSDT"]
+    options: ["XAUUSDT"]
+    aliases:
+      gold: XAUUSDT
+      xau: XAUUSDT
+    min_items: 1
+    max_items: 1
+    label: "Trading symbol"
+  leverage:
+    type: integer
+    default: 3
+    min: 1
+    max: 20
+    label: "Leverage"
+  margin_budget:
+    type: string
+    default: "200"
+    pattern: "^[0-9]+(\\.[0-9]+)?$"
+    label: "Margin budget USDT"
+  rr_ratio:
+    type: number
+    default: 2.0
+    min: 1.0
+    max: 4.0
+    label: "Reward to risk multiple"
+  swing_lookback:
+    type: integer
+    default: 5
+    min: 3
+    max: 12
+    label: "Swing structure lookback"

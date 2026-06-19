@@ -1,0 +1,40 @@
+venue:
+  name: BINANCE
+  account_type: MARGIN
+  oms_type: NETTING
+  starting_balances:
+    - amount: 100000
+      currency: USDT
+
+strategy:
+  module: strategy
+  class: SmcGoldStrategy
+  config_class: SmcGoldStrategyConfig
+  config:
+    order_id_tag: "001"
+    trade_size: "0.05"
+    swing_lookback: 5
+    sweep_buffer_pct: 0.0008
+    ob_search_bars: 8
+    rr_ratio: 2.0
+    max_bars_after_sweep: 12
+
+execution:
+  start: "2025-06-01T00:00:00Z"
+  end: "2026-06-01T00:00:00Z"
+
+instrument:
+  id: XAUUSDT.BINANCE
+  kind: perpetual
+  raw_symbol: XAUUSDT
+  base_currency: XAU
+  quote_currency: USDT
+  settlement_currency: USDT
+  price_precision: 2
+  size_precision: 2
+  price_increment: "0.01"
+  size_increment: "0.01"
+  lot_size: "0.01"
+  maker_fee: "0.0002"
+  taker_fee: "0.0006"
+  bar_type: XAUUSDT.BINANCE-15-MINUTE-LAST-EXTERNAL

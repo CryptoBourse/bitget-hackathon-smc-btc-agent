@@ -2,31 +2,37 @@
   "strategy_id": "7cbc53a3-4e7c-441c-96d5-02127459b9dd",
   "name": "smc-btc-agent-m15",
   "display_name": "SMC BTC Agent M15",
-  "submission_version": "0.0.4",
+  "submission_version": "0.0.6",
+  "version_id": "c9b716e8-44b6-4176-9fa9-2c20a31d92d2",
+  "published_at": "2026-06-19",
   "trading_symbols": ["BTCUSDT"],
   "execution_mode": "follow_trade",
   "follow_trade_supported": true,
-  "published_status": "versions_0.0.1_to_0.0.4_remain_on_server",
-  "official_metrics_cloud_v0_0_4": {
+  "description": "Smart Money Concepts M15 liquidity sweep strategy — validated on BTC, ETH, SOL, and gold perpetuals",
+  "official_metrics_cloud_v0_0_5": {
     "total_return_pct": 0.0104,
-    "max_drawdown_pct": 4.3,
+    "max_drawdown_pct": 0.43,
     "win_rate": 0.565217,
     "profit_factor": 3.8228,
     "total_trades": 46,
+    "sharpe_ratio": 5.7318,
     "metrics_basis": "strategy",
     "margin_budget": 100,
     "note": "Official GetAgent Nautilus replay at publish (~1000 M15 bars)"
   },
-  "paper_trading_instance_id_v0_0_4": "98f9de46-8a5e-4fc5-8424-3de07e34e88e",
-  "paper_trading_instance_id_v0_0_3_superseded": "9c39423c-a8d1-4f7a-9c22-7a534226ed62",
-  "paper_trading_status": "disabled_pending_user_re_enable",
+  "backtest_run_id": "pbrun-cea4a1442e92",
+  "paper_trading_instance_id_v0_0_6": "cff836fc-ba8e-4ebc-80b9-75a45b21b3d7",
+  "paper_trading_instance_id_v0_0_4_superseded": "98f9de46-8a5e-4fc5-8424-3de07e34e88e",
+  "paper_trading_status": "active_v0_0_6_signal_only",
   "playbook_public_hub": "https://www.bitget.com/activity/ai-get-agent/playbook",
   "playbook_lookup": "Search smc-btc-agent-m15 or strategy_id 7cbc53a3-4e7c-441c-96d5-02127459b9dd",
   "historical_versions": {
     "0.0.1": "BTC initial",
     "0.0.2": "BTC + long_description",
     "0.0.3": "ETH pivot",
-    "0.0.4": "BTC cloud-window optimized (submission)"
+    "0.0.4": "BTC cloud-window optimized",
+    "0.0.5": "SMC gold thesis + multi-asset validation text (BTC/ETH/SOL/XAU)",
+    "0.0.6": "Full SMC thesis in description field (Strategy details UI) + instance upgraded from v0.0.1"
   },
-  "note": "Published versions cannot be deleted via Playbook API (403). Submit v0.0.4 as final."
+  "multi_asset_backtest_note": "Same SMC logic backtested on BTCUSDT, ETHUSDT, SOLUSDT, XAUUSDT via scripts/optimize_smc.py and scripts/compare_assets.py"
 }

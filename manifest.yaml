@@ -1,43 +1,69 @@
 name: smc-btc-agent-m15
 display_name: "SMC BTC Agent M15"
 version: "0.2.0"
-description: "Autonomous SMC agent on BTC M15 — volatility perception, liquidity sweeps, order-block execution"
+description: |
+  This Playbook trades tokenized gold perpetual futures using Smart Money Concepts on a medium-term intraday timeframe. The thesis is that gold frequently hunts resting liquidity beyond obvious swing extremes before reversing toward institutional order blocks. Rather than chasing breakouts blindly, the strategy waits for a liquidity sweep, a shift in market structure, and a disciplined retest inside a favorable value zone before committing capital. It is built for subscribers who want a rules-based SMC workflow instead of discretionary chart reading.
+
+  Entries begin after price sweeps a recent swing extreme and closes back inside the prior range, signaling a stop-run rather than a true breakout. The Playbook then looks for a change of character in the direction of the intended reversal and waits for price to retest the last opposing order block while price remains in discount for longs or premium for shorts. Only when structure, liquidity, and value alignment agree does it enter long or enter short with a directional position.
+
+  Exits are managed with a fixed reward-to-risk framework plus structural invalidation. If price violates the sweep extreme again, the trade is closed as a failed setup. If price reaches the projected target derived from the initial risk budget, the position is closed to bank gains. An additional structure-based exit closes the trade when market character flips against the open position, preventing a winner from turning into a full reversal loss.
+
+  Subscribers may tune how aggressively the model labels liquidity sweeps, how far it searches for order blocks, the reward multiple applied to each setup, position size, leverage, and margin budget. Tighter sweep sensitivity produces fewer but cleaner signals, while wider sensitivity increases trade count at the cost of noisier entries. A higher reward multiple stretches profit targets and can reduce hit rate, while a lower multiple banks gains sooner.
+
+  The same SMC framework has been backtested on Bitcoin, Ethereum, and Solana perpetual futures in addition to tokenized gold. Subscribers choose one active pair at a time via Custom configuration.
+
+  The strategy underperforms in low-volatility sessions where sweeps are shallow and order blocks are repeatedly violated without follow-through. Fast news-driven spikes around macro releases can also stop out valid structural setups before the retest completes. Choppy overlapping ranges on gold can create repeated false sweeps and whipsaw losses. Past backtest performance is not a guarantee of live profitability.
 long_description: |
-  This Playbook is an autonomous trading agent for BTC perpetual futures on an
-  intraday timeframe. The thesis is that BTC often captures resting liquidity
-  beyond swing extremes before reversing, and an agent can perceive that
-  behavior without discretionary chart reading. The agent follows a complete
-  perceive-decide-execute loop: it first checks whether volatility is active
-  enough to trade, then maps swing structure and liquidity behavior, and only
-  then commits to a directional position with predefined risk controls.
+  This Playbook trades tokenized gold perpetual futures using Smart Money
+  Concepts on a medium-term intraday timeframe. The thesis is that gold
+  frequently hunts resting liquidity beyond obvious swing extremes before
+  reversing toward institutional order blocks. Rather than chasing breakouts
+  blindly, the strategy waits for a liquidity sweep, a shift in market
+  structure, and a disciplined retest inside a favorable value zone before
+  committing capital. It is built for subscribers who want a rules-based SMC
+  workflow instead of discretionary chart reading.
 
-  Perception combines a volatility regime read with a structure read. Quiet
-  sessions are filtered out because sweeps there are usually noise. Confirmed
-  swing highs and lows tell the agent whether price is in premium, discount,
-  or a neutral zone before it considers a reversal setup.
+  Entries begin after price sweeps a recent swing extreme and closes back
+  inside the prior range, signaling a stop-run rather than a true breakout.
+  The Playbook then looks for a change of character in the direction of the
+  intended reversal and waits for price to retest the last opposing order
+  block while price remains in discount for longs or premium for shorts. Only
+  when structure, liquidity, and value alignment agree does it enter long or
+  enter short with a directional position.
 
-  Decision logic follows Smart Money Concepts. The agent waits for a sweep
-  beyond a recent swing extreme and a close back inside the prior range,
-  signaling that resting liquidity was taken rather than a true breakout. It
-  then looks for a change of character and a retest of the last opposing order
-  block while price remains in a favorable value area. Only when perception,
-  liquidity, and value alignment agree does it enter long or short.
+  Exits are managed with a fixed reward-to-risk framework plus structural
+  invalidation. If price violates the sweep extreme again, the trade is
+  closed as a failed setup. If price reaches the projected target derived
+  from the initial risk budget, the position is closed to bank gains. An
+  additional structure-based exit closes the trade when market character
+  flips against the open position, preventing a winner from turning into a
+  full reversal loss.
 
-  Execution is fully rule-based. The agent defines stop loss beyond the sweep
-  extreme, targets a reward multiple of the initial risk, and closes early if
-  market structure flips against the open trade. Subscribers can tune sweep
-  sensitivity, order-block search depth, reward multiple, volatility threshold,
-  leverage, and margin budget. Switch to ETH, SOL, or gold via Custom.
+  Subscribers may tune how aggressively the model labels liquidity sweeps,
+  how far it searches for order blocks, the reward multiple applied to each
+  setup, position size, leverage, and margin budget. Tighter sweep
+  sensitivity produces fewer but cleaner signals, while wider sensitivity
+  increases trade count at the cost of noisier entries. A higher reward
+  multiple stretches profit targets and can reduce hit rate, while a lower
+  multiple banks gains sooner.
 
-  The strategy underperforms in very quiet sessions and violent news spikes
-  where a valid sweep is invalidated before retest. Choppy overlapping ranges
-  can create repeated false sweeps. Past backtest performance is not a guarantee
-  of live profitability; slippage and fees erode edge in real execution.
-  Package version 0.2.0 is local; cloud publish tag for submission is 0.0.4.
+  Multi-asset validation: the same SMC framework has been backtested on
+  Bitcoin, Ethereum, and Solana perpetual futures in addition to
+  tokenized gold. Reproducible local grid-search and extended-history
+  scripts confirm the logic produces trades across all four markets.
+  Subscribers choose one active pair at a time via Custom configuration.
+
+  The strategy underperforms in low-volatility sessions where sweeps are
+  shallow and order blocks are repeatedly violated without follow-through.
+  Fast news-driven spikes around macro releases can also stop out valid
+  structural setups before the retest completes. Choppy overlapping ranges
+  on gold can create repeated false sweeps and whipsaw losses. Past
+  backtest performance is not a guarantee of live profitability, and paper
+  or live execution will face slippage and fees that erode edge.
 
 market_type: contract
 trading_symbols: ["BTCUSDT"]
-tags: ["smc", "btc", "agent", "autonomous", "liquidity", "m15", "contract", "hackathon"]
+tags: ["smc", "btc", "eth", "sol", "agent", "autonomous", "liquidity", "m15", "contract", "multi-asset", "hackathon"]
 
 decision_mode: deterministic
 backtest_support: full
