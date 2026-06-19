@@ -1,0 +1,169 @@
+{
+  "generated_at": "2026-06-19",
+  "margin_budget_usdt": 200,
+  "bitget_ui_limitation": "La carte Playbook Bitget affiche UNIQUEMENT le backtest cloud officiel au moment du publish (~1000 barres M15, ~10 jours). Les backtests etendus locaux ne peuvent pas etre injectes dans l UI via API.",
+  "hackathon_submission": "Soumettre ce fichier + optimize_smc_results.json + trades CSV comme preuve supplementaire reproductible.",
+  "assets": [
+    {
+      "symbol": "ETHUSDT",
+      "role": "Actif principal (v0.0.3 live/paper)",
+      "sources": [
+        {
+          "name": "cloud_official_v0.0.3",
+          "data_bars": 1000,
+          "window": "~10 jours cloud GetAgent",
+          "trades": 76,
+          "win_rate": 0.5263,
+          "profit_factor": 2.15,
+          "return_pct": 0.0098,
+          "max_drawdown_pct": 12.7,
+          "displayed_on_bitget_card": true,
+          "verdict": "Metriques officielles UI — ROI absolu faible car fenetre courte et PnL en dollars modeste."
+        },
+        {
+          "name": "optimize_smc_grid_search",
+          "data_bars": "variable Bitget API",
+          "window": "2024-06-19 to 2026-06-19 (donnees sparse)",
+          "trades": 66,
+          "win_rate": 0.5303,
+          "profit_factor": 7.77,
+          "return_pct": 220.3,
+          "params": {
+            "swing_lookback": 8,
+            "sweep_buffer_pct": 0.0002,
+            "rr_ratio": 1.5,
+            "min_atr_pct": 0.0018
+          },
+          "displayed_on_bitget_card": false,
+          "verdict": "ROI eleve mais suspect d overfitting (grid-search sur meme historique). A presenter comme optimisation exploratoire, pas garantie live."
+        }
+      ]
+    },
+    {
+      "symbol": "BTCUSDT",
+      "role": "Actif secondaire / comparaison",
+      "sources": [
+        {
+          "name": "optimize_smc_grid_search",
+          "trades": 47,
+          "win_rate": 0.3617,
+          "profit_factor": 1.66,
+          "return_pct": 22.45,
+          "params": {
+            "swing_lookback": 6,
+            "sweep_buffer_pct": 0.0008,
+            "rr_ratio": 2.5,
+            "min_atr_pct": 0.0018
+          },
+          "displayed_on_bitget_card": false,
+          "verdict": "Meilleur equilibre credibilite/performance parmi les cryptos testees."
+        },
+        {
+          "name": "backtest_btc_2y_unoptimized",
+          "data_bars": 1749,
+          "calendar_days": 642,
+          "period_start": "2024-09-14",
+          "period_end": "2026-06-19",
+          "note": "Pas 2 ans continus — trous dans l historique Bitget public",
+          "trades": 68,
+          "win_rate": 0.3824,
+          "profit_factor": 0.996,
+          "return_pct": -0.165,
+          "max_drawdown_pct": 0.189,
+          "params": {
+            "swing_lookback": 3,
+            "sweep_buffer_pct": 0.0004,
+            "rr_ratio": 2.0,
+            "note": "Parametres NON optimises — different du manifest actuel"
+          },
+          "displayed_on_bitget_card": false,
+          "verdict": "Legèrement perdant avec params par defaut. Ne pas confondre avec resultats optimises."
+        },
+        {
+          "name": "cloud_official_v0.0.1_btc",
+          "trades": 48,
+          "win_rate": 0.5417,
+          "profit_factor": 4.06,
+          "return_pct": 0.0236,
+          "displayed_on_bitget_card": false,
+          "verdict": "Remplace par v0.0.3 ETH sur la carte."
+        }
+      ]
+    },
+    {
+      "symbol": "SOLUSDT",
+      "role": "Actif secondaire",
+      "sources": [
+        {
+          "name": "optimize_smc_grid_search",
+          "trades": 81,
+          "win_rate": 0.4938,
+          "profit_factor": 1.61,
+          "return_pct": 5.08,
+          "params": {
+            "swing_lookback": 4,
+            "sweep_buffer_pct": 0.0002,
+            "rr_ratio": 1.5,
+            "min_atr_pct": 0.0008,
+            "max_atr_pct": 0.012
+          },
+          "displayed_on_bitget_card": false,
+          "verdict": "Positif mais modeste. Beaucoup de trades, edge faible."
+        }
+      ]
+    },
+    {
+      "symbol": "XAUUSDT",
+      "role": "Or tokenise RWA — preuve supplementaire",
+      "sources": [
+        {
+          "name": "backtest_extended_default_params",
+          "data_bars": 600,
+          "period_start": "2026-03-10",
+          "period_end": "2026-06-19",
+          "trades": 19,
+          "win_rate": 0.5789,
+          "profit_factor": 2.06,
+          "return_pct": 1.53,
+          "max_drawdown_pct": null,
+          "params": {
+            "swing_lookback": 3,
+            "sweep_buffer_pct": 0.0004,
+            "rr_ratio": 2.0,
+            "note": "Parametres par defaut, pas grid-search"
+          },
+          "displayed_on_bitget_card": false,
+          "verdict": "Positif sur fenetre courte (~3 mois). WR eleve mais echantillon petit (19 trades)."
+        }
+      ]
+    }
+  ],
+  "ranking_for_jury": [
+    {
+      "rank": 1,
+      "symbol": "ETHUSDT",
+      "reason": "Meilleur ROI optimise + cloud officiel le plus actif (76 trades). Attention overfitting."
+    },
+    {
+      "rank": 2,
+      "symbol": "BTCUSDT",
+      "reason": "+22% optimise, PF 1.66 — plus realiste que ETH 220%."
+    },
+    {
+      "rank": 3,
+      "symbol": "XAUUSDT",
+      "reason": "+1.5% sur 3 mois, WR 58%, PF 2.06 — prometteur mais peu de trades."
+    },
+    {
+      "rank": 4,
+      "symbol": "SOLUSDT",
+      "reason": "+5% modeste, PF 1.61."
+    }
+  ],
+  "honest_warnings": [
+    "L historique Bitget public M15 n est pas continu sur 2 ans — barres sparse avec trous.",
+    "Le grid-search optimize_smc peut sur-ajuster (ETH +220% a traiter avec prudence).",
+    "backtest_btc_2y utilise des params differents du manifest — comparer avec precaution.",
+    "La carte Bitget ne montrera jamais les ROI etendus — uniquement le snapshot cloud publish."
+  ]
+}
