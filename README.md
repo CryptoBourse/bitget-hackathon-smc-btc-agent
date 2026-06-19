@@ -15,6 +15,19 @@ Autonomous Smart Money Concepts trading agent for **BTCUSDT** perpetual on **15-
 
 > **Version note:** GetAgent assigns publish tags (`0.0.1`–`0.0.6`). `manifest.yaml` `version: 0.2.0` is the local package revision only. **Submit v0.0.6** in the hackathon form.
 
+### My playbooks — use only v0.0.6
+
+Bitget cannot delete old published versions (API 403). Multiple cards in **My playbooks** are normal for the creator.
+
+| Card | Action |
+|------|--------|
+| **v0.0.6** — Strategy details start with *"This Playbook trades tokenized gold…"* | **USE THIS** (hackathon submission) |
+| v0.0.1 – v0.0.5 — short line *"Autonomous SMC trading agent…"* | Ignore — do not Launch |
+| **SMC BTC Agent M15 · Custom** | Ignore — draft fork |
+| **SMC ETH Agent M15** (v0.0.3) | Ignore |
+
+All agent instances are **disabled** (no live `follow_trade` on your account). Launch again only when you explicitly want v0.0.6.
+
 ## Thesis
 
 This Playbook trades tokenized gold perpetual futures using Smart Money Concepts on a medium-term intraday timeframe. The thesis is that gold frequently hunts resting liquidity beyond obvious swing extremes before reversing toward institutional order blocks. Rather than chasing breakouts blindly, the strategy waits for a liquidity sweep, a shift in market structure, and a disciplined retest inside a favorable value zone before committing capital. It is built for subscribers who want a rules-based SMC workflow instead of discretionary chart reading.
