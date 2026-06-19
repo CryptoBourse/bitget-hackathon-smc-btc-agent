@@ -3,7 +3,8 @@
   "version_id": "86283b4d-51a4-42d0-a82f-5fa5ce756180",
   "version": "0.0.3",
   "display_name": "SMC ETH Agent M15",
-  "status": "published",
+  "status": "disabled_by_user",
+  "published_status": "versions_remain_on_server",
   "published_at": "2026-06-19T14:10:40+00:00",
   "name": "smc-btc-agent-m15",
   "trading_symbols": ["ETHUSDT"],
@@ -27,5 +28,7 @@
     "source": "evidence/optimize_smc_results.json"
   },
   "paper_trading_instance_id": "3659442d-6bef-4bc9-8aac-ac8dd6b68a45",
+  "paper_trading_status": "disabled",
+  "note": "User requested removal — instance disabled via API. Published versions 0.0.1-0.0.3 cannot be deleted via Playbook API."
   "schedule": "*/15 * * * * Asia/Shanghai"
 }

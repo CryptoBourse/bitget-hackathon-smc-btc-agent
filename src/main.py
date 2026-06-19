@@ -72,7 +72,7 @@ def _fetch_replay_frame(symbol: str, interval: str, exchange: str) -> pd.DataFra
 
 def run() -> None:
     cfg = runtime.manifest.get("strategy_config", {}) or {}
-    symbols = cfg.get("trading_symbols") or ["ETHUSDT"]
+    symbols = cfg.get("trading_symbols") or ["BTCUSDT"]
     symbol = symbols[0]
     interval = cfg.get("bar_interval", "15m")
 
@@ -138,7 +138,7 @@ def run() -> None:
         metrics=metrics,
         meta={
             "chart_path": chart_path,
-            "agent": "smc_eth_autonomous_m15",
+            "agent": "smc_btc_autonomous_m15",
             "bar_interval": interval,
             "perception": {
                 "volatility_regime": regime,

@@ -23,11 +23,11 @@
     "max_bars_after_sweep": 8,
     "min_atr_pct": 0.0018,
     "max_atr_pct": 0.0,
-    "trades": 66,
-    "net_pnl": 440.60660240000004,
-    "return_pct": 220.30330120000002,
-    "win_rate": 0.5303030303030303,
-    "profit_factor": 7.772766938221863
+    "trades": 62,
+    "net_pnl": 428.8637452000001,
+    "return_pct": 214.43187260000002,
+    "win_rate": 0.5161290322580645,
+    "profit_factor": 7.987069869374941
   },
   "SOLUSDT": {
     "symbol": "SOLUSDT",

@@ -22,12 +22,12 @@
         },
         {
           "name": "optimize_smc_grid_search",
-          "data_bars": "variable Bitget API",
+          "data_bars": 1744,
           "window": "2024-06-19 to 2026-06-19 (donnees sparse)",
-          "trades": 66,
-          "win_rate": 0.5303,
-          "profit_factor": 7.77,
-          "return_pct": 220.3,
+          "trades": 62,
+          "win_rate": 0.5161,
+          "profit_factor": 7.99,
+          "return_pct": 214.43,
           "params": {
             "swing_lookback": 8,
             "sweep_buffer_pct": 0.0002,
@@ -45,6 +45,7 @@
       "sources": [
         {
           "name": "optimize_smc_grid_search",
+          "data_bars": 1744,
           "trades": 47,
           "win_rate": 0.3617,
           "profit_factor": 1.66,
@@ -96,6 +97,7 @@
       "sources": [
         {
           "name": "optimize_smc_grid_search",
+          "data_bars": 1744,
           "trades": 81,
           "win_rate": 0.4938,
           "profit_factor": 1.61,
@@ -161,7 +163,8 @@
     }
   ],
   "honest_warnings": [
-    "L historique Bitget public M15 n est pas continu sur 2 ans — barres sparse avec trous.",
+    "L historique Bitget public M15 n est pas continu sur 2 ans — 1744 barres sparse avec trous pour BTC/ETH/SOL.",
+    "optimize_smc.py retourne 0 barres pour XAUUSDT via history-candles — utiliser backtest_extended.py pour XAU.",
     "Le grid-search optimize_smc peut sur-ajuster (ETH +220% a traiter avec prudence).",
     "backtest_btc_2y utilise des params differents du manifest — comparer avec precaution.",
     "La carte Bitget ne montrera jamais les ROI etendus — uniquement le snapshot cloud publish."
