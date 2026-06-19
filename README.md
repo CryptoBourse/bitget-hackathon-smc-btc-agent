@@ -1,14 +1,14 @@
-# SMC BTC Agent M15 — Bitget AI Hackathon S1
+# SMC ETH Agent M15 — Bitget AI Hackathon S1
 
-Autonomous Smart Money Concepts trading agent for **BTCUSDT** perpetual on **15-minute** bars.
+Autonomous Smart Money Concepts trading agent for **ETHUSDT** perpetual on **15-minute** bars.
 
-**Published Playbook:** `smc-btc-agent-m15` v0.0.1  
+**Published Playbook:** `smc-btc-agent-m15` (display: SMC ETH Agent M15)  
 **Strategy ID:** `7cbc53a3-4e7c-441c-96d5-02127459b9dd`  
-**Paper trading:** `follow_trade` enabled, cron `*/15 * * * *` (Asia/Shanghai)
+**Paper trading:** `follow_trade` on ETH, cron `*/15 * * * *` (Asia/Shanghai)
 
 ## 策略 / Strategy
 
-BTC often runs liquidity beyond swing highs or lows before reversing. This agent automates a perceive-decide-execute SMC workflow:
+ETH often runs liquidity beyond swing highs or lows before reversing. This agent automates a perceive-decide-execute SMC workflow:
 
 1. **Structure** — track confirmed swing highs and swing lows
 2. **Liquidity sweep** — wick beyond a swing extreme, close back inside range

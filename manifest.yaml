@@ -1,17 +1,16 @@
 name: smc-btc-agent-m15
-display_name: "SMC BTC Agent M15"
+display_name: "SMC ETH Agent M15"
 version: "0.2.0"
-description: "Autonomous SMC trading agent on BTC perpetual M15 with volatility perception and liquidity sweep execution"
+description: "Autonomous SMC trading agent on ETH perpetual M15 with volatility perception and liquidity sweep execution"
 long_description: |
-  This Playbook is an autonomous trading agent for BTC perpetual futures on an
-  intraday timeframe. The thesis is that BTC frequently captures resting
+  This Playbook is an autonomous trading agent for ETH perpetual futures on an
+  intraday timeframe. The thesis is that ETH frequently captures resting
   liquidity beyond swing extremes before reversing, and an agent can perceive
   that behavior and act without discretionary chart reading. The agent is built
   around a simple but complete perceive-decide-execute loop rather than a
-  single static indicator rule. It first reads
-  whether the market is active enough to trade, then maps swing structure and
-  liquidity behavior, and only then commits to a directional position with
-  predefined risk controls.
+  single static indicator rule. It first reads whether the market is active
+  enough to trade, then maps swing structure and liquidity behavior, and only
+  then commits to a directional position with predefined risk controls.
 
   Perception combines two layers. A volatility regime read filters out quiet
   periods where liquidity sweeps are usually noise rather than genuine stop
@@ -42,14 +41,13 @@ long_description: |
   Past historical backtest performance is not a guarantee of live profitability,
   and paper or live execution will face slippage and fees that erode edge.
 
-  Subscribers choose one trading pair at a time via Custom: BTC, ETH, SOL, or
-  tokenized gold perpetual. Only one symbol runs per deployment; switch pairs
-  by updating the instance configuration rather than expecting simultaneous
-  multi-asset execution from a single agent.
+  Subscribers may switch to BTC, SOL, or tokenized gold via Custom, but the
+  default deployment targets ETH where grid-search optimization showed the
+  strongest risk-adjusted edge on recent Bitget history.
 
 market_type: contract
-trading_symbols: ["BTCUSDT"]
-tags: ["smc", "btc", "agent", "autonomous", "liquidity", "m15", "contract", "multi-asset"]
+trading_symbols: ["ETHUSDT"]
+tags: ["smc", "eth", "agent", "autonomous", "liquidity", "m15", "contract"]
 
 decision_mode: deterministic
 backtest_support: full
@@ -62,25 +60,25 @@ schedule:
   tz: "Asia/Shanghai"
 
 strategy_config:
-  trading_symbols: ["BTCUSDT"]
+  trading_symbols: ["ETHUSDT"]
   bar_interval: "15m"
-  swing_lookback: 6
-  sweep_buffer_pct: 0.0008
+  swing_lookback: 8
+  sweep_buffer_pct: 0.0002
   ob_search_bars: 6
-  rr_ratio: 2.5
+  rr_ratio: 1.5
   max_bars_after_sweep: 8
   atr_period: 14
   min_atr_pct: 0.0018
   max_atr_pct: 0.0
   leverage: 3
   margin_budget: "200"
-  trade_size: "0.01"
+  trade_size: "0.05"
 
 user_config_schema:
   trading_symbols:
     type: array
     item_type: string
-    default: ["BTCUSDT"]
+    default: ["ETHUSDT"]
     options: ["BTCUSDT", "ETHUSDT", "SOLUSDT", "XAUUSDT"]
     aliases:
       btc: BTCUSDT
@@ -105,7 +103,7 @@ user_config_schema:
     label: "Margin budget USDT"
   rr_ratio:
     type: number
-    default: 2.5
+    default: 1.5
     min: 1.0
     max: 4.0
     label: "Reward to risk multiple"
@@ -117,7 +115,7 @@ user_config_schema:
     label: "Minimum volatility to trade"
   swing_lookback:
     type: integer
-    default: 6
+    default: 8
     min: 3
     max: 12
     label: "Swing structure lookback"

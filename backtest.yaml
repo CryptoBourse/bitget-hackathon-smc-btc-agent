@@ -12,21 +12,21 @@ strategy:
   config_class: SmcGoldStrategyConfig
   config:
     order_id_tag: "001"
-    trade_size: "0.01"
-    swing_lookback: 6
-    sweep_buffer_pct: 0.0008
+    trade_size: "0.05"
+    swing_lookback: 8
+    sweep_buffer_pct: 0.0002
     ob_search_bars: 6
-    rr_ratio: 2.5
+    rr_ratio: 1.5
     max_bars_after_sweep: 8
     atr_period: 14
     min_atr_pct: 0.0018
     max_atr_pct: 0.0
 
 instrument:
-  id: BTCUSDT.BINANCE
+  id: ETHUSDT.BINANCE
   kind: perpetual
-  raw_symbol: BTCUSDT
-  base_currency: BTC
+  raw_symbol: ETHUSDT
+  base_currency: ETH
   quote_currency: USDT
   settlement_currency: USDT
   price_precision: 2
@@ -36,4 +36,4 @@ instrument:
   lot_size: "0.001"
   maker_fee: "0.0002"
   taker_fee: "0.0006"
-  bar_type: BTCUSDT.BINANCE-15-MINUTE-LAST-EXTERNAL
+  bar_type: ETHUSDT.BINANCE-15-MINUTE-LAST-EXTERNAL

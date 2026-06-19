@@ -1,23 +1,31 @@
 {
   "strategy_id": "7cbc53a3-4e7c-441c-96d5-02127459b9dd",
-  "version_id": "04b38e95-58a0-47f0-aae7-9f9e4ac99901",
-  "version": "0.0.2",
+  "version_id": "86283b4d-51a4-42d0-a82f-5fa5ce756180",
+  "version": "0.0.3",
+  "display_name": "SMC ETH Agent M15",
   "status": "published",
-  "published_at": "2026-06-19T13:56:52+00:00",
+  "published_at": "2026-06-19T14:10:40+00:00",
   "name": "smc-btc-agent-m15",
-  "display_name": "SMC BTC Agent M15",
+  "trading_symbols": ["ETHUSDT"],
   "execution_mode": "follow_trade",
   "follow_trade_supported": true,
-  "official_metrics": {
-    "total_return_pct": 0.0104,
-    "max_drawdown_pct": 4.8,
-    "win_rate": 0.541667,
-    "profit_factor": 3.3513,
-    "total_trades": 48,
-    "sharpe_ratio": 5.732,
+  "official_metrics_cloud": {
+    "total_return_pct": 0.0098,
+    "max_drawdown_pct": 12.7,
+    "win_rate": 0.526316,
+    "profit_factor": 2.1468,
+    "total_trades": 76,
     "metrics_basis": "strategy",
-    "margin_budget": 200
+    "margin_budget": 200,
+    "note": "Cloud backtest limited to ~1000 M15 bars (~10 days)"
   },
-  "paper_trading_instance_id": "dea6f752-0f49-48a2-90fe-7651577784b4",
+  "official_metrics_local_eth": {
+    "total_return_pct": 220.3,
+    "win_rate": 0.5303,
+    "profit_factor": 7.77,
+    "total_trades": 66,
+    "source": "evidence/optimize_smc_results.json"
+  },
+  "paper_trading_instance_id": "3659442d-6bef-4bc9-8aac-ac8dd6b68a45",
   "schedule": "*/15 * * * * Asia/Shanghai"
 }
