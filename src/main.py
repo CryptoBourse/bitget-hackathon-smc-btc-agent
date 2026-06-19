@@ -1,4 +1,4 @@
-"""SMC Gold M15 Playbook entry point."""
+"""SMC BTC Agent M15 Playbook entry point."""
 import math
 from typing import Any
 

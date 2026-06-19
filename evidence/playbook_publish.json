@@ -17,8 +17,11 @@
     "margin_budget": 100,
     "note": "Official GetAgent Nautilus replay at publish (~1000 M15 bars)"
   },
-  "paper_trading_instance_id": "98f9de46-8a5e-4fc5-8424-3de07e34e88e",
-  "paper_trading_status": "check_ui_before_submission",
+  "paper_trading_instance_id_v0_0_4": "98f9de46-8a5e-4fc5-8424-3de07e34e88e",
+  "paper_trading_instance_id_v0_0_3_superseded": "9c39423c-a8d1-4f7a-9c22-7a534226ed62",
+  "paper_trading_status": "disabled_pending_user_re_enable",
+  "playbook_public_hub": "https://www.bitget.com/activity/ai-get-agent/playbook",
+  "playbook_lookup": "Search smc-btc-agent-m15 or strategy_id 7cbc53a3-4e7c-441c-96d5-02127459b9dd",
   "historical_versions": {
     "0.0.1": "BTC initial",
     "0.0.2": "BTC + long_description",

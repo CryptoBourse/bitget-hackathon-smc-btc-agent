@@ -33,6 +33,7 @@ long_description: |
   where a valid sweep is invalidated before retest. Choppy overlapping ranges
   can create repeated false sweeps. Past backtest performance is not a guarantee
   of live profitability; slippage and fees erode edge in real execution.
+  Package version 0.2.0 is local; cloud publish tag for submission is 0.0.4.
 
 market_type: contract
 trading_symbols: ["BTCUSDT"]

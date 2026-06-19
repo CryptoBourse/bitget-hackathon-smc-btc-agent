@@ -6,10 +6,14 @@ Autonomous Smart Money Concepts trading agent for **BTCUSDT** perpetual on **15-
 |------|-------|
 | **Track** | Trading Agent |
 | **Playbook** | `smc-btc-agent-m15` |
-| **Submission version** | `0.0.4` (BTC, cloud-window tuned) |
+| **Published version (submit this)** | `0.0.4` (BTC, cloud-window tuned) |
+| **Package version (`manifest.yaml`)** | `0.2.0` (local semver — not the cloud publish tag) |
 | **Strategy ID** | `7cbc53a3-4e7c-441c-96d5-02127459b9dd` |
 | **Bitget UID** | `7365246417` |
 | **Schedule** | `*/15 * * * *` (Asia/Shanghai) |
+| **Playbook hub** | [Bitget GetAgent Playbook](https://www.bitget.com/activity/ai-get-agent/playbook) — search `smc-btc-agent-m15` or Strategy ID |
+
+> **Version note:** GetAgent assigns publish tags (`0.0.1`–`0.0.4`). `manifest.yaml` `version: 0.2.0` is the local package revision only. **Submit v0.0.4** in the hackathon form.
 
 ## Thesis
 
@@ -24,6 +28,30 @@ BTC often runs liquidity beyond swing highs or lows before reversing. This agent
 
 Past performance is not a guarantee of live profitability. Cloud card ROI reflects the official GetAgent Nautilus replay (~1000 M15 bars), not extended local simulations.
 
+Legacy note: some class names (`SmcGoldStrategy`) and folder name (`smc-gold`) come from an early XAU prototype. **Submission asset is BTCUSDT v0.0.4.** ETH/SOL/XAU appear only in optional multi-asset scripts under `scripts/` and `evidence/`.
+
+## 策略 / Strategy
+
+BTC M15 Smart Money Concepts agent: structure → liquidity sweep → order block retest → rule-based execution.
+
+## 开仓 / Entry
+
+- **Long:** bullish sweep of swing low → retest bullish order block in discount
+- **Short:** bearish sweep of swing high → retest bearish order block in premium
+
+## 平仓 / Exit
+
+- Stop beyond the sweep extreme
+- Take profit at configured reward-to-risk multiple
+- Early exit on structure invalidation
+
+## 风险 / Risk
+
+- Quiet sessions and news spikes → false sweeps or missed retests
+- Cloud card ROI (~0.01%) ≠ extended local backtests
+- Paper trading log must show real executed signals before final submission
+- Slippage and fees reduce edge in live execution
+
 ## Quick start (local)
 
 **Requirements:** Python 3.11+
@@ -33,8 +61,8 @@ Past performance is not a guarantee of live profitability. Cloud card ROI reflec
 git clone https://github.com/CryptoBourse/bitget-hackathon-smc-btc-agent.git
 cd bitget-hackathon-smc-btc-agent
 
-# Validate Playbook package (getagent skill)
-python path/to/getagent/scripts/validate.py .
+# Validate Playbook package (getagent skill v0.3.3)
+python C:\Users\USER\AppData\Roaming\npm\node_modules\@bitget-ai\getagent-skill\skills\getagent\scripts\validate.py .
 ```
 
 Reproduce supplementary backtests (optional evidence):

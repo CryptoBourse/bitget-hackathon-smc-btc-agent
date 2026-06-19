@@ -1,2 +1,3 @@
 timestamp,symbol,direction,price,quantity,balance,execution_mode,notes
-2026-06-19T13:45:00+08:00,BTCUSDT,—,—,—,200,agent_enabled,"Paper trading instance 9c39423c-a8d1-4f7a-9c22-7a534226ed62 active (follow_trade). Trades will append on each M15 cron run."
+2026-06-19T14:10:00+08:00,BTCUSDT,—,—,—,100,agent_enabled,"v0.0.4 instance 98f9de46-8a5e-4fc5-8424-3de07e34e88e (follow_trade). Prior instance 9c39423c-... was v0.0.3 ETH — superseded."
+2026-06-19T14:10:00+08:00,BTCUSDT,PENDING,PENDING,PENDING,100,follow_trade,"ACTION REQUIRED: re-enable paper trading on v0.0.4; real trades append here each M15 cron run."
