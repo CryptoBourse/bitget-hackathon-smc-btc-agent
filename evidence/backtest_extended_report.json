@@ -1,0 +1,23 @@
+{
+  "symbol": "XAUUSDT",
+  "interval": "15m",
+  "data_source": "bitget_public_history_candles",
+  "bar_count": 600,
+  "period_start": "2026-03-10T08:00:00+00:00",
+  "period_end": "2026-06-19T11:30:00+00:00",
+  "total_trades": 19,
+  "win_rate": 0.5789473684210527,
+  "profit_factor": 2.061197915493995,
+  "net_pnl_usd": 3.0634498000000803,
+  "strategy_return_pct": 1.5317249000000401,
+  "margin_budget": 200.0,
+  "trade_size": 0.05,
+  "params": {
+    "swing_lookback": 3,
+    "sweep_buffer_pct": 0.0004,
+    "ob_search_bars": 10,
+    "rr_ratio": 2.0,
+    "max_bars_after_sweep": 20
+  },
+  "note": "Supplementary extended backtest for hackathon. Primary demo remains GetAgent Playbook cloud run."
+}

@@ -1,0 +1,21 @@
+{
+  "strategy_id": "7cbc53a3-4e7c-441c-96d5-02127459b9dd",
+  "version_id": "691eb27c-47c0-4f6d-aaf2-0b62d480b776",
+  "version": "0.0.1",
+  "status": "published",
+  "published_at": "2026-06-19T13:31:04+00:00",
+  "name": "smc-btc-agent-m15",
+  "display_name": "SMC BTC Agent M15",
+  "execution_mode": "follow_trade",
+  "follow_trade_supported": true,
+  "official_metrics": {
+    "total_return_pct": 0.0236,
+    "max_drawdown_pct": 0.0096,
+    "win_rate": 0.541667,
+    "profit_factor": 4.0557,
+    "total_trades": 48,
+    "sharpe_ratio": 6.607
+  },
+  "paper_trading_instance_id": "9c39423c-a8d1-4f7a-9c22-7a534226ed62",
+  "schedule": "*/15 * * * * Asia/Shanghai"
+}

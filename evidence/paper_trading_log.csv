@@ -1,0 +1,2 @@
+timestamp,symbol,direction,price,quantity,balance,execution_mode,notes
+2026-06-19T13:45:00+08:00,BTCUSDT,—,—,—,200,agent_enabled,"Paper trading instance 9c39423c-a8d1-4f7a-9c22-7a534226ed62 active (follow_trade). Trades will append on each M15 cron run."

@@ -1,0 +1,47 @@
+{
+  "BTCUSDT": {
+    "symbol": "BTCUSDT",
+    "swing_lookback": 6,
+    "sweep_buffer_pct": 0.0008,
+    "ob_search_bars": 6,
+    "rr_ratio": 2.5,
+    "max_bars_after_sweep": 8,
+    "min_atr_pct": 0.0018,
+    "max_atr_pct": 0.0,
+    "trades": 47,
+    "net_pnl": 44.89257960000032,
+    "return_pct": 22.44628980000016,
+    "win_rate": 0.3617021276595745,
+    "profit_factor": 1.6640710991267513
+  },
+  "ETHUSDT": {
+    "symbol": "ETHUSDT",
+    "swing_lookback": 8,
+    "sweep_buffer_pct": 0.0002,
+    "ob_search_bars": 6,
+    "rr_ratio": 1.5,
+    "max_bars_after_sweep": 8,
+    "min_atr_pct": 0.0018,
+    "max_atr_pct": 0.0,
+    "trades": 66,
+    "net_pnl": 440.60660240000004,
+    "return_pct": 220.30330120000002,
+    "win_rate": 0.5303030303030303,
+    "profit_factor": 7.772766938221863
+  },
+  "SOLUSDT": {
+    "symbol": "SOLUSDT",
+    "swing_lookback": 4,
+    "sweep_buffer_pct": 0.0002,
+    "ob_search_bars": 6,
+    "rr_ratio": 1.5,
+    "max_bars_after_sweep": 8,
+    "min_atr_pct": 0.0008,
+    "max_atr_pct": 0.012,
+    "trades": 81,
+    "net_pnl": 10.16190209999992,
+    "return_pct": 5.08095104999996,
+    "win_rate": 0.49382716049382713,
+    "profit_factor": 1.6126735290742233
+  }
+}

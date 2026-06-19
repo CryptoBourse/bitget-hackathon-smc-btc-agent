@@ -1,0 +1,25 @@
+{
+  "symbol": "BTCUSDT",
+  "interval": "15m",
+  "target_period": "2 years (2024-06-19 to 2026-06-19)",
+  "data_source": "bitget_public_history_candles",
+  "bar_count": 1749,
+  "calendar_days": 642.1,
+  "period_start": "2024-09-14T22:00:00+00:00",
+  "period_end": "2026-06-19T00:00:00+00:00",
+  "total_trades": 68,
+  "win_rate": 0.38235294117647056,
+  "profit_factor": 0.9960384676377169,
+  "net_pnl_usd": -0.3304408000005075,
+  "strategy_return_pct": -0.16522040000025376,
+  "max_drawdown_pct": 0.18901823378209923,
+  "margin_budget": 200.0,
+  "trade_size_btc": 0.01,
+  "params": {
+    "swing_lookback": 3,
+    "sweep_buffer_pct": 0.0004,
+    "ob_search_bars": 10,
+    "rr_ratio": 2.0,
+    "max_bars_after_sweep": 20
+  }
+}
