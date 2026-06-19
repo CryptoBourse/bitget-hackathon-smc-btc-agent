@@ -1,34 +1,29 @@
 {
   "strategy_id": "7cbc53a3-4e7c-441c-96d5-02127459b9dd",
-  "version_id": "86283b4d-51a4-42d0-a82f-5fa5ce756180",
-  "version": "0.0.3",
-  "display_name": "SMC ETH Agent M15",
-  "status": "disabled_by_user",
-  "published_status": "versions_remain_on_server",
-  "published_at": "2026-06-19T14:10:40+00:00",
   "name": "smc-btc-agent-m15",
-  "trading_symbols": ["ETHUSDT"],
+  "display_name": "SMC BTC Agent M15",
+  "submission_version": "0.0.4",
+  "trading_symbols": ["BTCUSDT"],
   "execution_mode": "follow_trade",
   "follow_trade_supported": true,
-  "official_metrics_cloud": {
-    "total_return_pct": 0.0098,
-    "max_drawdown_pct": 12.7,
-    "win_rate": 0.526316,
-    "profit_factor": 2.1468,
-    "total_trades": 76,
+  "published_status": "versions_0.0.1_to_0.0.4_remain_on_server",
+  "official_metrics_cloud_v0_0_4": {
+    "total_return_pct": 0.0104,
+    "max_drawdown_pct": 4.3,
+    "win_rate": 0.565217,
+    "profit_factor": 3.8228,
+    "total_trades": 46,
     "metrics_basis": "strategy",
-    "margin_budget": 200,
-    "note": "Cloud backtest limited to ~1000 M15 bars (~10 days)"
+    "margin_budget": 100,
+    "note": "Official GetAgent Nautilus replay at publish (~1000 M15 bars)"
   },
-  "official_metrics_local_eth": {
-    "total_return_pct": 220.3,
-    "win_rate": 0.5303,
-    "profit_factor": 7.77,
-    "total_trades": 66,
-    "source": "evidence/optimize_smc_results.json"
+  "paper_trading_instance_id": "98f9de46-8a5e-4fc5-8424-3de07e34e88e",
+  "paper_trading_status": "check_ui_before_submission",
+  "historical_versions": {
+    "0.0.1": "BTC initial",
+    "0.0.2": "BTC + long_description",
+    "0.0.3": "ETH pivot",
+    "0.0.4": "BTC cloud-window optimized (submission)"
   },
-  "paper_trading_instance_id": "3659442d-6bef-4bc9-8aac-ac8dd6b68a45",
-  "paper_trading_status": "disabled",
-  "note": "User requested removal — instance disabled via API. Published versions 0.0.1-0.0.3 cannot be deleted via Playbook API."
-  "schedule": "*/15 * * * * Asia/Shanghai"
+  "note": "Published versions cannot be deleted via Playbook API (403). Submit v0.0.4 as final."
 }
