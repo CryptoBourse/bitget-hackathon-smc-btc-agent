@@ -1,6 +1,6 @@
 name: smc-btc-agent-m15
-display_name: "SMC BTC Agent M15"
-version: "0.2.0"
+display_name: "Gold SMC Agent M15"
+version: "0.2.3"
 description: |
   This Playbook trades tokenized gold perpetual futures using Smart Money Concepts on a medium-term intraday timeframe. The thesis is that gold frequently hunts resting liquidity beyond obvious swing extremes before reversing toward institutional order blocks. Rather than chasing breakouts blindly, the strategy waits for a liquidity sweep, a shift in market structure, and a disciplined retest inside a favorable value zone before committing capital. It is built for subscribers who want a rules-based SMC workflow instead of discretionary chart reading.
 
@@ -63,7 +63,7 @@ long_description: |
 
 market_type: contract
 trading_symbols: ["BTCUSDT"]
-tags: ["smc", "btc", "eth", "sol", "agent", "autonomous", "liquidity", "m15", "contract", "multi-asset", "hackathon"]
+tags: ["smc", "gold", "btc", "eth", "sol", "agent", "autonomous", "liquidity", "m15", "contract", "multi-asset", "hackathon"]
 
 decision_mode: deterministic
 backtest_support: full
@@ -89,6 +89,7 @@ strategy_config:
   leverage: 3
   margin_budget: "100"
   trade_size: "0.01"
+  force_probe_trade: false
 
 user_config_schema:
   trading_symbols:
@@ -135,3 +136,7 @@ user_config_schema:
     min: 3
     max: 12
     label: "Swing structure lookback"
+  force_probe_trade:
+    type: boolean
+    default: false
+    label: "Probe trade (keep false for real SMC only)"

@@ -1,4 +1,4 @@
-# SMC BTC Agent M15 — Bitget AI Hackathon S1
+# Gold SMC Agent M15 — Bitget AI Hackathon S1
 
 Autonomous Smart Money Concepts trading agent for **BTCUSDT** perpetual on **15-minute** bars.
 
@@ -6,27 +6,27 @@ Autonomous Smart Money Concepts trading agent for **BTCUSDT** perpetual on **15-
 |------|-------|
 | **Track** | Trading Agent |
 | **Playbook** | `smc-btc-agent-m15` |
-| **Published version (submit this)** | `0.0.6` (full SMC thesis in Strategy details) |
-| **Package version (`manifest.yaml`)** | `0.2.0` (local semver — not the cloud publish tag) |
+| **Display name (cloud)** | **Gold SMC Agent M15** |
+| **Published version (submit this)** | **`0.0.9`** |
+| **Package version (`manifest.yaml`)** | `0.2.3` (local semver — not the cloud publish tag) |
 | **Strategy ID** | `7cbc53a3-4e7c-441c-96d5-02127459b9dd` |
+| **Version ID (v0.0.9)** | `37647def-cbd1-4e88-9cb6-b391ba03db01` |
 | **Bitget UID** | `7365246417` |
 | **Schedule** | `*/15 * * * *` (Asia/Shanghai) |
-| **Playbook hub** | [Bitget GetAgent Playbook](https://www.bitget.com/activity/ai-get-agent/playbook) — search `smc-btc-agent-m15` or Strategy ID |
+| **Live status** | **Active** — `follow_trade` on v0.0.9 |
+| **Playbook hub** | [Bitget GetAgent Playbook](https://www.bitget.com/activity/ai-get-agent/playbook) — search **Gold SMC Agent M15** or Strategy ID |
 
-> **Version note:** GetAgent assigns publish tags (`0.0.1`–`0.0.6`). `manifest.yaml` `version: 0.2.0` is the local package revision only. **Submit v0.0.6** in the hackathon form.
+> **Submit v0.0.9** in the hackathon form. Older cards named *SMC BTC Agent M15* (v0.0.1–v0.0.8) are superseded.
 
-### My playbooks — use only v0.0.6
+### My playbooks — use only Gold SMC Agent M15 (v0.0.9)
 
 Bitget cannot delete old published versions (API 403). Multiple cards in **My playbooks** are normal for the creator.
 
 | Card | Action |
 |------|--------|
-| **v0.0.6** — Strategy details start with *"This Playbook trades tokenized gold…"* | **USE THIS** (hackathon submission) |
-| v0.0.1 – v0.0.5 — short line *"Autonomous SMC trading agent…"* | Ignore — do not Launch |
+| **Gold SMC Agent M15** (v0.0.9) | **USE THIS** — hackathon submission + live SMC |
+| SMC BTC Agent M15 (v0.0.1–v0.0.8) | Ignore |
 | **SMC BTC Agent M15 · Custom** | Ignore — draft fork |
-| **SMC ETH Agent M15** (v0.0.3) | Ignore |
-
-All agent instances are **disabled** (no live `follow_trade` on your account). Launch again only when you explicitly want v0.0.6.
 
 ## Thesis
 
@@ -42,7 +42,7 @@ This Playbook trades tokenized gold perpetual futures using Smart Money Concepts
 
 **Limitations** — the strategy underperforms in low-volatility sessions where sweeps are shallow and order blocks are repeatedly violated without follow-through. Fast news-driven spikes around macro releases can also stop out valid structural setups before the retest completes. Choppy overlapping ranges on gold can create repeated false sweeps and whipsaw losses. Past backtest performance is not a guarantee of live profitability.
 
-Cloud card ROI reflects the official GetAgent Nautilus replay (~1000 M15 bars), not extended local simulations. **Submission asset is BTCUSDT v0.0.6**; class names (`SmcGoldStrategy`) and folder name (`smc-gold`) reflect the original XAU SMC prototype.
+Cloud card ROI reflects the official GetAgent Nautilus replay (~1000 M15 bars), not extended local simulations. **Submission asset is BTCUSDT v0.0.9**; class names (`SmcGoldStrategy`) and folder name (`smc-gold`) reflect the original XAU SMC prototype.
 
 ## 策略 / Strategy
 
@@ -88,15 +88,15 @@ python scripts/optimize_smc.py           # grid-search BTC/ETH/SOL
 python scripts/compare_assets.py         # fair default-params comparison
 ```
 
-## Official cloud metrics (v0.0.6 publish)
+## Official cloud metrics (v0.0.9 publish)
 
 | Metric | Value |
 |--------|-------|
-| ROI (strategy basis) | ~0.01% |
-| Win rate | ~56.5% |
-| Profit factor | ~3.82 |
-| Trades | 46 |
-| Max drawdown | ~4.3% |
+| ROI (strategy basis) | ~0.005% |
+| Win rate | ~55% |
+| Profit factor | ~2.82 |
+| Trades | 40 |
+| Max drawdown | ~0.39% |
 | Margin budget | 100 USDT |
 
 > Local optimized simulations (e.g. +18% on cloud-window grid search) use a simplified Python replay and **do not** match the official Nautilus card. See `evidence/backtest_multi_asset_review.json`.
@@ -127,6 +127,7 @@ bitget-hackathon-smc-gold/
 ├── backtest.yaml
 ├── src/
 │   ├── main.py
+│   ├── live_smc.py
 │   ├── strategy.py
 │   ├── smc.py
 │   └── perception.py

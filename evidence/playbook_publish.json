@@ -1,53 +1,34 @@
 {
   "strategy_id": "7cbc53a3-4e7c-441c-96d5-02127459b9dd",
   "name": "smc-btc-agent-m15",
-  "display_name": "SMC BTC Agent M15",
-  "submission_version": "0.0.6",
-  "version_id": "c9b716e8-44b6-4176-9fa9-2c20a31d92d2",
-  "published_at": "2026-06-19",
+  "display_name": "Gold SMC Agent M15",
+  "submission_version": "0.0.9",
+  "version_id": "37647def-cbd1-4e88-9cb6-b391ba03db01",
+  "published_at": "2026-06-20",
   "trading_symbols": ["BTCUSDT"],
   "execution_mode": "follow_trade",
   "follow_trade_supported": true,
-  "description": "Smart Money Concepts M15 liquidity sweep strategy — validated on BTC, ETH, SOL, and gold perpetuals",
-  "official_metrics_cloud_v0_0_5": {
-    "total_return_pct": 0.0104,
-    "max_drawdown_pct": 0.43,
-    "win_rate": 0.565217,
-    "profit_factor": 3.8228,
-    "total_trades": 46,
-    "sharpe_ratio": 5.7318,
-    "metrics_basis": "strategy",
-    "margin_budget": 100,
-    "note": "Official GetAgent Nautilus replay at publish (~1000 M15 bars)"
+  "official_metrics_cloud_v0_0_9": {
+    "total_return_pct": 0.0054,
+    "max_drawdown_pct": 0.0039,
+    "win_rate": 0.55,
+    "profit_factor": 2.8211,
+    "total_trades": 40,
+    "sharpe_ratio": 1.5612,
+    "backtest_run_id": "pbrun-0af2197136b5"
   },
-  "backtest_run_id": "pbrun-cea4a1442e92",
-  "paper_trading_status": "all_instances_disabled",
-  "active_instances_count": 0,
-  "disabled_instances": [
-    {"instance_id": "cff836fc-ba8e-4ebc-80b9-75a45b21b3d7", "version": "0.0.6", "mode": "signal_only"},
-    {"instance_id": "98f9de46-8a5e-4fc5-8424-3de07e34e88e", "version": "0.0.4", "mode": "follow_trade"},
-    {"instance_id": "9c39423c-a8d1-4f7a-9c22-7a534226ed62", "version": "0.0.3", "mode": "follow_trade", "symbol": "ETH"},
-    {"instance_id": "fcf39f4c-0d22-45b5-8ac5-e8ac9dbd5c09", "version": "0.0.1", "mode": "follow_trade"},
-    {"instance_id": "d6247a14-d557-42bf-bb2e-b5953bfd8577", "version": "0.0.1", "mode": "follow_trade"}
-  ],
-  "use_only_version": "0.0.6",
-  "use_only_version_id": "c9b716e8-44b6-4176-9fa9-2c20a31d92d2",
-  "ignore_versions": ["0.0.1", "0.0.2", "0.0.3", "0.0.4", "0.0.5"],
-  "ignore_custom_draft": {
-    "strategy_id": "02bb6594-72c0-49a0-9871-b33622ff7440",
-    "display_name": "SMC BTC Agent M15 · Custom",
-    "note": "Draft fork — do not Launch"
+  "active_instance": {
+    "instance_id": "92d709e2-16d0-4b58-b521-2331d98cf133",
+    "version": "0.0.9",
+    "display_name": "Gold SMC Agent M15",
+    "mode": "follow_trade",
+    "channel": "bg_getclaw",
+    "status": "active"
   },
-  "ui_cleanup_limitation": "Bitget API returns 403 on delete/deprecate — old version cards remain visible in My playbooks for the creator. Only v0.0.6 should be launched.",
-  "playbook_public_hub": "https://www.bitget.com/activity/ai-get-agent/playbook",
-  "playbook_lookup": "Search smc-btc-agent-m15 or strategy_id 7cbc53a3-4e7c-441c-96d5-02127459b9dd",
-  "historical_versions": {
-    "0.0.1": "BTC initial",
-    "0.0.2": "BTC + long_description",
-    "0.0.3": "ETH pivot",
-    "0.0.4": "BTC cloud-window optimized",
-    "0.0.5": "SMC gold thesis + multi-asset validation text (BTC/ETH/SOL/XAU)",
-    "0.0.6": "Full SMC thesis in description field (Strategy details UI) + instance upgraded from v0.0.1"
-  },
-  "multi_asset_backtest_note": "Same SMC logic backtested on BTCUSDT, ETHUSDT, SOLUSDT, XAUUSDT via scripts/optimize_smc.py and scripts/compare_assets.py"
+  "paper_trading_status": "probe_closed_live_smc_running",
+  "use_only_version": "0.0.9",
+  "use_only_version_id": "37647def-cbd1-4e88-9cb6-b391ba03db01",
+  "ignore_versions": ["0.0.1", "0.0.2", "0.0.3", "0.0.4", "0.0.5", "0.0.6", "0.0.7", "0.0.8"],
+  "hackathon_form": "https://forms.gle/CEGB6fRtuobD3bCj8",
+  "bitget_uid": "7365246417"
 }
