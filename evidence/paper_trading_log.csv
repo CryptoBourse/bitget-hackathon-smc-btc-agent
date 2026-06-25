@@ -1,3 +1,3 @@
 timestamp,symbol,direction,price,quantity,balance,execution_mode,notes
-2026-06-20T15:32:29+08:00,BTCUSDT,long,63372.60,0.0047,100.33,follow_trade,"OPEN — v0.0.7 instance 30d7d1d0 force_probe_trade_validation. GetAgent sub-account ~100 USDT. Entry 63372.60 | Size 0.0047."
-2026-06-20T00:00:00+00:00,BTCUSDT,close_long,,0.0047,,follow_trade,"CLOSE — probe position closed manually by Bitget Support (ticket #3210645). Exit price/PnL not visible in Playbook UI; fill from Bitget history if available."
+2026-06-20T15:32:29+08:00,BTCUSDT,long,63372.60,0.0047,100.33,follow_trade,"OPEN — v0.0.7 force_probe_trade_validation. GetAgent sub-account ~100 USDT deposit. Entry 63372.60 | Size 0.0047."
+2026-06-23T12:00:00+08:00,BTCUSDT,close_long,,0.0047,97.26,support,"CLOSE — position closed manually by Bitget Support (ticket #3210645). Exact time/exit price unknown. Balance after close: 97.26 USDT (deposited ~100 USDT). Realized PnL approx -2.74 USDT incl. fees."

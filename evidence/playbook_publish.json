@@ -25,7 +25,14 @@
     "channel": "bg_getclaw",
     "status": "active"
   },
-  "paper_trading_status": "probe_closed_live_smc_running",
+  "paper_trading_status": "probe_closed_by_support_2026-06-23",
+  "probe_close": {
+    "closed_at": "2026-06-23",
+    "closed_by": "Bitget Support ticket #3210645",
+    "deposit_usdt": 100,
+    "balance_after_close_usdt": 97.26,
+    "realized_pnl_usdt_approx": -2.74
+  },
   "use_only_version": "0.0.9",
   "use_only_version_id": "37647def-cbd1-4e88-9cb6-b391ba03db01",
   "ignore_versions": ["0.0.1", "0.0.2", "0.0.3", "0.0.4", "0.0.5", "0.0.6", "0.0.7", "0.0.8"],
